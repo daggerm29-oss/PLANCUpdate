@@ -1,7 +1,7 @@
 From e5c1b687a11c5e208abf9464ae83c6aa6c3356d6 Mon Sep 17 00:00:00 2001
 From: Akhil <akhiltherapper@gmail.com>
 Date: Tue, 13 Oct 2026 03:48:56 +0000
-Subject: [PATCH 1/2] feat(duckdb): implement hosted DuckDB/MotherDuck
+Subject: [PATCH 1/3] feat(duckdb): implement hosted DuckDB/MotherDuck
  pipeline, CLI, and integration tests
 
 ---
@@ -2566,7 +2566,7 @@ index 0000000..c6ed076
 From 905401a15db94fda5187b2ca1fbabdbce66f7d20 Mon Sep 17 00:00:00 2001
 From: Akhil <akhiltherapper@gmail.com>
 Date: Tue, 13 Oct 2026 04:35:26 +0000
-Subject: [PATCH 2/2] fix(importer): detect dataset folders, parse GLEIF/ICIJ
+Subject: [PATCH 2/3] fix(importer): detect dataset folders, parse GLEIF/ICIJ
  zip archives, and deduplicate relationships
 
 ---
@@ -3959,6 +3959,141 @@ index b19a654..487a475 100644
          test_health_check_lightweight()
  
 +
+-- 
+2.34.1
+
+
+From 1fd1de59ce10c2259dbae90969d2d3003d7ac02a Mon Sep 17 00:00:00 2001
+From: Akhil <akhiltherapper@gmail.com>
+Date: Tue, 13 Oct 2026 05:17:57 +0000
+Subject: [PATCH 3/3] perf(importer): clear root in iterparse, increase batch
+ size to 10k, and log real-time progress
+
+---
+ backend/app/importers/duckdb_import.py | 48 ++++++++++++++++++++++++--
+ 1 file changed, 45 insertions(+), 3 deletions(-)
+
+diff --git a/backend/app/importers/duckdb_import.py b/backend/app/importers/duckdb_import.py
+index 13c5417..6b981c3 100644
+--- a/backend/app/importers/duckdb_import.py
++++ b/backend/app/importers/duckdb_import.py
+@@ -54,7 +54,8 @@ from ..resolution.normalize import (
+ 
+ logger = logging.getLogger("planc.importer")
+ 
+-BATCH_SIZE = 2500
++BATCH_SIZE = 10000
++PROGRESS_INTERVAL = 10000
+ _RUN_COUNTER = itertools.count(int(time.time() * 1000))
+ 
+ 
+@@ -238,6 +239,11 @@ def import_mca(con: Any, path: Path) -> dict:
+                 if len(entity_batch) >= BATCH_SIZE:
+                     _upsert_entities_and_ids(con, entity_batch, id_batch)
+                     tracker.counts["inserted"] += len(entity_batch)
++                    print(
++                        f"    -> [MCA] {path.name}: processed {tracker.counts['seen']:,} rows "
++                        f"({tracker.counts['inserted']:,} inserted)...",
++                        flush=True,
++                    )
+                     entity_batch.clear()
+                     id_batch.clear()
+ 
+@@ -297,10 +303,18 @@ def import_gleif_level1(con: Any, path: Path) -> dict:
+         entity_batch = []
+         id_batch = []
+         now = utcnow()
++        start_t = time.time()
+ 
+         with _iter_xml_streams(path) as xml_streams:
+             for stream_name, xml_stream in xml_streams:
+-                for _, elem in ET.iterparse(xml_stream, events=("end",)):
++                root = None
++                for event, elem in ET.iterparse(xml_stream, events=("start", "end")):
++                    if event == "start" and root is None:
++                        root = elem
++                        continue
++                    if event != "end":
++                        continue
++
+                     if _local(elem.tag) == "LEIRecord":
+                         tracker.counts["seen"] += 1
+                         lei = _text(elem, "LEI")
+@@ -309,6 +323,8 @@ def import_gleif_level1(con: Any, path: Path) -> dict:
+                         if not lei or not name:
+                             tracker.counts["rejected"] += 1
+                             elem.clear()
++                            if root is not None:
++                                root.clear()
+                             continue
+ 
+                         entity_id = f"gleif:{lei}"
+@@ -342,10 +358,18 @@ def import_gleif_level1(con: Any, path: Path) -> dict:
+                         if len(entity_batch) >= BATCH_SIZE:
+                             _upsert_entities_and_ids(con, entity_batch, id_batch)
+                             tracker.counts["inserted"] += len(entity_batch)
++                            rate = int(tracker.counts["seen"] / max(time.time() - start_t, 0.001))
++                            print(
++                                f"    -> [GLEIF_L1] processed {tracker.counts['seen']:,} records "
++                                f"({tracker.counts['inserted']:,} inserted) [{rate:,} rec/s]...",
++                                flush=True,
++                            )
+                             entity_batch.clear()
+                             id_batch.clear()
+ 
+                         elem.clear()
++                        if root is not None:
++                            root.clear()
+ 
+         if entity_batch:
+             _upsert_entities_and_ids(con, entity_batch, id_batch)
+@@ -364,10 +388,18 @@ def import_gleif_level2(con: Any, path: Path) -> dict:
+     with IngestTracker(con, source_id, path, "gleif_rr_cdf_xml") as tracker:
+         rel_batch = []
+         now = utcnow()
++        start_t = time.time()
+ 
+         with _iter_xml_streams(path) as xml_streams:
+             for stream_name, xml_stream in xml_streams:
+-                for _, elem in ET.iterparse(xml_stream, events=("end",)):
++                root = None
++                for event, elem in ET.iterparse(xml_stream, events=("start", "end")):
++                    if event == "start" and root is None:
++                        root = elem
++                        continue
++                    if event != "end":
++                        continue
++
+                     if _local(elem.tag) == "RelationshipRecord":
+                         tracker.counts["seen"] += 1
+                         child_lei = _text(elem, "Relationship/StartNode/NodeID")
+@@ -377,6 +409,8 @@ def import_gleif_level2(con: Any, path: Path) -> dict:
+                         if not child_lei or not parent_lei or child_lei == parent_lei:
+                             tracker.counts["rejected"] += 1
+                             elem.clear()
++                            if root is not None:
++                                root.clear()
+                             continue
+ 
+                         predicate = "ultimate_parent" if "ULTIMATELY" in rel_type else "direct_parent"
+@@ -402,9 +436,17 @@ def import_gleif_level2(con: Any, path: Path) -> dict:
+                                 rel_batch,
+                             )
+                             tracker.counts["inserted"] += len(rel_batch)
++                            rate = int(tracker.counts["seen"] / max(time.time() - start_t, 0.001))
++                            print(
++                                f"    -> [GLEIF_L2] processed {tracker.counts['seen']:,} relationships "
++                                f"({tracker.counts['inserted']:,} inserted) [{rate:,} rel/s]...",
++                                flush=True,
++                            )
+                             rel_batch.clear()
+ 
+                         elem.clear()
++                        if root is not None:
++                            root.clear()
+ 
+         if rel_batch:
+             con.executemany(
 -- 
 2.34.1
 

@@ -111,6 +111,10 @@ class Settings:
     motherduck_database: str
     duckdb_path: Path
     cors_origins: str
+    gcp_project_id: str
+    bigquery_dataset: str
+    bigquery_location: str
+    gcs_bucket: str
 
 
 def load_settings() -> Settings:
@@ -157,6 +161,10 @@ def load_settings() -> Settings:
         motherduck_database=_str("MOTHERDUCK_DATABASE", "planc"),
         duckdb_path=_path("DUCKDB_PATH", BACKEND_DIR / "data" / "osint.duckdb"),
         cors_origins=_str("CORS_ORIGINS", "http://localhost:3000,https://*.vercel.app"),
+        gcp_project_id=_str("GCP_PROJECT_ID", os.environ.get("GOOGLE_CLOUD_PROJECT", "")),
+        bigquery_dataset=_str("BIGQUERY_DATASET", "planc"),
+        bigquery_location=_str("BIGQUERY_LOCATION", "US"),
+        gcs_bucket=_str("GCS_BUCKET", ""),
     )
 
 

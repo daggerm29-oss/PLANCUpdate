@@ -75,7 +75,15 @@ def health(db_check: bool = Query(False, alias="db")):
         "uptime_ping_safe": True,
     }
     if db_check:
-        if settings.db_backend in ("motherduck", "duckdb"):
+        if settings.db_backend == "bigquery":
+            try:
+                from . import bigquery_db
+                client = bigquery_db.get_client()
+                res["counts"] = bigquery_db.counts(client)
+                res["database"] = f"Google BigQuery ({client.project}.{settings.bigquery_dataset})"
+            except Exception as e:
+                res["db_error"] = str(e)
+        elif settings.db_backend in ("motherduck", "duckdb"):
             try:
                 from . import duckdb_db
                 con = duckdb_db.connect()
@@ -94,6 +102,20 @@ def health(db_check: bool = Query(False, alias="db")):
 
 @app.get("/api/stats")
 def stats(conn: sqlite3.Connection = Conn):
+    if settings.db_backend == "bigquery":
+        try:
+            from . import bigquery_db
+            client = bigquery_db.get_client()
+            return {
+                "backend": f"Google BigQuery ({client.project}.{settings.bigquery_dataset})",
+                "counts": bigquery_db.counts(client),
+                "sources": [],
+                "runs": [],
+                "pending_reviews": 0,
+            }
+        except Exception:
+            pass
+
     if settings.db_backend in ("motherduck", "duckdb"):
         try:
             from . import duckdb_db
@@ -196,7 +218,21 @@ def ai_disconnect():
 @app.get("/api/search")
 def search(q: str = Query(..., min_length=1, max_length=200), limit: int = Query(25, ge=1, le=100),
            conn: sqlite3.Connection = Conn):
-    if settings.db_backend in ("motherduck", "duckdb"):
+    if settings.db_backend == "bigquery":
+        try:
+            from . import bigquery_db
+            client = bigquery_db.get_client()
+            bq_res = bigquery_db.search(client, q, limit=limit)
+            if bq_res:
+                return {
+                    "query": q,
+                    "backend": f"Google BigQuery ({client.project}.{settings.bigquery_dataset})",
+                    "detected_identifiers": [],
+                    "results": bq_res,
+                }
+        except Exception:
+            pass
+    elif settings.db_backend in ("motherduck", "duckdb"):
         try:
             from . import duckdb_db
             con = duckdb_db.connect()
@@ -218,7 +254,18 @@ def search(q: str = Query(..., min_length=1, max_length=200), limit: int = Query
 
 @app.get("/api/entities/{entity_id:path}/graph")
 def entity_graph(entity_id: str, limit: int = Query(60, ge=1, le=300), conn: sqlite3.Connection = Conn):
-    if settings.db_backend in ("motherduck", "duckdb"):
+    if settings.db_backend == "bigquery":
+        try:
+            from . import bigquery_db
+            client = bigquery_db.get_client()
+            if bigquery_db.get_entity(client, entity_id):
+                g = bigquery_db.get_graph(client, entity_id, limit=limit)
+                for r in g["edges"]:
+                    r["label"] = edge_label(r["predicate"])
+                return {"root": entity_id, "nodes": g["nodes"], "edges": g["edges"]}
+        except Exception:
+            pass
+    elif settings.db_backend in ("motherduck", "duckdb"):
         try:
             from . import duckdb_db
             con = duckdb_db.connect()
@@ -256,7 +303,15 @@ def entity_ownership(entity_id: str, direction: str = Query("up", pattern="^(up|
 
 @app.get("/api/entities/{entity_id:path}/timeline")
 def entity_timeline(entity_id: str, conn: sqlite3.Connection = Conn):
-    if settings.db_backend in ("motherduck", "duckdb"):
+    if settings.db_backend == "bigquery":
+        try:
+            from . import bigquery_db
+            client = bigquery_db.get_client()
+            if bigquery_db.get_entity(client, entity_id):
+                return {"events": bigquery_db.get_timeline(client, entity_id), "conflicts": []}
+        except Exception:
+            pass
+    elif settings.db_backend in ("motherduck", "duckdb"):
         try:
             from . import duckdb_db
             con = duckdb_db.connect()
@@ -276,7 +331,21 @@ def entity_report(entity_id: str, ai: bool = False, conn: sqlite3.Connection = C
 
 @app.get("/api/entities/{entity_id:path}")
 def entity_detail(entity_id: str, conn: sqlite3.Connection = Conn):
-    if settings.db_backend in ("motherduck", "duckdb"):
+    if settings.db_backend == "bigquery":
+        try:
+            from . import bigquery_db
+            client = bigquery_db.get_client()
+            ent = bigquery_db.get_entity(client, entity_id)
+            if ent:
+                g = bigquery_db.get_graph(client, entity_id)
+                ent["relationships"] = g["edges"]
+                ent["evidence"] = []
+                ent["matches"] = []
+                ent["claims"] = []
+                return ent
+        except Exception:
+            pass
+    elif settings.db_backend in ("motherduck", "duckdb"):
         try:
             from . import duckdb_db
             con = duckdb_db.connect()

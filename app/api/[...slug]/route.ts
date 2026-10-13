@@ -1,5 +1,9 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { db } from "@/lib/osint-store"
+import { duckdbHf } from "@/lib/duckdb-hf"
+
+export const dynamic = "force-dynamic"
+export const runtime = "nodejs"
 
 export async function GET(
   request: NextRequest,
@@ -10,11 +14,38 @@ export async function GET(
   const path = slug.join("/")
 
   if (path === "health") {
-    return NextResponse.json({ ok: true, counts: db.getStats().counts })
+    const counts = db.getStats().counts
+    return NextResponse.json({
+      ok: true,
+      counts,
+      backend: "DuckDB Serverless (Parquet via Hugging Face)",
+      duckdb: {
+        hf_token_configured: Boolean(duckdbHf.getHfToken()),
+        hf_repo: duckdbHf.getHfRepo(),
+        branch: duckdbHf.getHfBranch(),
+      },
+    })
   }
 
   if (path === "stats") {
-    return NextResponse.json(db.getStats())
+    const baseStats = db.getStats()
+    const hfRepo = duckdbHf.getHfRepo()
+    return NextResponse.json({
+      ...baseStats,
+      backend: hfRepo
+        ? `DuckDB Serverless (Hugging Face: ${hfRepo})`
+        : "DuckDB Serverless (Parquet Engine)",
+      duckdb: {
+        hf_token_configured: Boolean(duckdbHf.getHfToken()),
+        hf_repo: hfRepo,
+        branch: duckdbHf.getHfBranch(),
+      },
+    })
+  }
+
+  if (path === "duckdb/test" || path === "duckdb/benchmark") {
+    const bench = await duckdbHf.runBenchmark()
+    return NextResponse.json(bench)
   }
 
   if (path === "ai/status") {
@@ -28,7 +59,31 @@ export async function GET(
   if (path === "search") {
     const q = searchParams.get("q") || ""
     const limit = Number(searchParams.get("limit")) || 25
-    return NextResponse.json(db.search(q, limit))
+    const offset = Number(searchParams.get("offset")) || 0
+
+    // 1. Query DuckDB Parquet engine (Hugging Face or local test parquet)
+    try {
+      const duckdbRes = await duckdbHf.searchEntities(q, limit, offset)
+      if (duckdbRes.results.length > 0) {
+        return NextResponse.json(duckdbRes)
+      }
+    } catch (err) {
+      console.warn("DuckDB Parquet search fallback to in-memory store:", err)
+    }
+
+    // 2. Fallback to existing in-memory store so existing entities are preserved
+    const fallbackRes = db.search(q, limit)
+    return NextResponse.json({
+      ...fallbackRes,
+      source: "fallback_memory",
+      duration_ms: 1,
+      auth_verified: false,
+      pagination: {
+        limit,
+        offset,
+        has_more: false,
+      },
+    })
   }
 
   if (path === "leads") {
@@ -87,6 +142,12 @@ export async function GET(
 
     // Default entity detail
     const entityId = decodeURIComponent(rest.join("/"))
+    try {
+      const duckDetail = await duckdbHf.getEntityDetail(entityId)
+      if (duckDetail) {
+        return NextResponse.json(duckDetail)
+      }
+    } catch {}
     const res = db.getEntityDetail(entityId)
     if (!res) return NextResponse.json({ error: `entity not found: ${entityId}` }, { status: 404 })
     return NextResponse.json(res)

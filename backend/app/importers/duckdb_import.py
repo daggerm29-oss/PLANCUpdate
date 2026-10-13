@@ -54,7 +54,8 @@ from ..resolution.normalize import (
 
 logger = logging.getLogger("planc.importer")
 
-BATCH_SIZE = 2500
+BATCH_SIZE = 10000
+PROGRESS_INTERVAL = 10000
 _RUN_COUNTER = itertools.count(int(time.time() * 1000))
 
 
@@ -238,6 +239,11 @@ def import_mca(con: Any, path: Path) -> dict:
                 if len(entity_batch) >= BATCH_SIZE:
                     _upsert_entities_and_ids(con, entity_batch, id_batch)
                     tracker.counts["inserted"] += len(entity_batch)
+                    print(
+                        f"    -> [MCA] {path.name}: processed {tracker.counts['seen']:,} rows "
+                        f"({tracker.counts['inserted']:,} inserted)...",
+                        flush=True,
+                    )
                     entity_batch.clear()
                     id_batch.clear()
 
@@ -297,10 +303,18 @@ def import_gleif_level1(con: Any, path: Path) -> dict:
         entity_batch = []
         id_batch = []
         now = utcnow()
+        start_t = time.time()
 
         with _iter_xml_streams(path) as xml_streams:
             for stream_name, xml_stream in xml_streams:
-                for _, elem in ET.iterparse(xml_stream, events=("end",)):
+                root = None
+                for event, elem in ET.iterparse(xml_stream, events=("start", "end")):
+                    if event == "start" and root is None:
+                        root = elem
+                        continue
+                    if event != "end":
+                        continue
+
                     if _local(elem.tag) == "LEIRecord":
                         tracker.counts["seen"] += 1
                         lei = _text(elem, "LEI")
@@ -309,6 +323,8 @@ def import_gleif_level1(con: Any, path: Path) -> dict:
                         if not lei or not name:
                             tracker.counts["rejected"] += 1
                             elem.clear()
+                            if root is not None:
+                                root.clear()
                             continue
 
                         entity_id = f"gleif:{lei}"
@@ -342,10 +358,18 @@ def import_gleif_level1(con: Any, path: Path) -> dict:
                         if len(entity_batch) >= BATCH_SIZE:
                             _upsert_entities_and_ids(con, entity_batch, id_batch)
                             tracker.counts["inserted"] += len(entity_batch)
+                            rate = int(tracker.counts["seen"] / max(time.time() - start_t, 0.001))
+                            print(
+                                f"    -> [GLEIF_L1] processed {tracker.counts['seen']:,} records "
+                                f"({tracker.counts['inserted']:,} inserted) [{rate:,} rec/s]...",
+                                flush=True,
+                            )
                             entity_batch.clear()
                             id_batch.clear()
 
                         elem.clear()
+                        if root is not None:
+                            root.clear()
 
         if entity_batch:
             _upsert_entities_and_ids(con, entity_batch, id_batch)
@@ -364,10 +388,18 @@ def import_gleif_level2(con: Any, path: Path) -> dict:
     with IngestTracker(con, source_id, path, "gleif_rr_cdf_xml") as tracker:
         rel_batch = []
         now = utcnow()
+        start_t = time.time()
 
         with _iter_xml_streams(path) as xml_streams:
             for stream_name, xml_stream in xml_streams:
-                for _, elem in ET.iterparse(xml_stream, events=("end",)):
+                root = None
+                for event, elem in ET.iterparse(xml_stream, events=("start", "end")):
+                    if event == "start" and root is None:
+                        root = elem
+                        continue
+                    if event != "end":
+                        continue
+
                     if _local(elem.tag) == "RelationshipRecord":
                         tracker.counts["seen"] += 1
                         child_lei = _text(elem, "Relationship/StartNode/NodeID")
@@ -377,6 +409,8 @@ def import_gleif_level2(con: Any, path: Path) -> dict:
                         if not child_lei or not parent_lei or child_lei == parent_lei:
                             tracker.counts["rejected"] += 1
                             elem.clear()
+                            if root is not None:
+                                root.clear()
                             continue
 
                         predicate = "ultimate_parent" if "ULTIMATELY" in rel_type else "direct_parent"
@@ -402,9 +436,17 @@ def import_gleif_level2(con: Any, path: Path) -> dict:
                                 rel_batch,
                             )
                             tracker.counts["inserted"] += len(rel_batch)
+                            rate = int(tracker.counts["seen"] / max(time.time() - start_t, 0.001))
+                            print(
+                                f"    -> [GLEIF_L2] processed {tracker.counts['seen']:,} relationships "
+                                f"({tracker.counts['inserted']:,} inserted) [{rate:,} rel/s]...",
+                                flush=True,
+                            )
                             rel_batch.clear()
 
                         elem.clear()
+                        if root is not None:
+                            root.clear()
 
         if rel_batch:
             con.executemany(
@@ -876,10 +918,11 @@ def classify_dataset_file(path: Path) -> str:
     return "unknown"
 
 
-def import_all_datasets(con: Any, target_path: Path) -> dict:
+def import_all_datasets(con: Any, target_path: Path, skip_gleif: bool = False, only: str | None = None) -> dict:
     """Master import pipeline: auto-detects, logs, streams, and batch-imports all datasets.
 
     Guarantees:
+    - Fast datasets (MCA, OpenSanctions, NSE, ICIJ) process first before multi-gigabyte GLEIF archives.
     - Reports every dataset found, processed, skipped, or failed. Never silently skips.
     - Accurately classifies files by parent folder hierarchy as well as filenames.
     - Idempotent re-imports: re-running does not duplicate relationships or entities.
@@ -904,20 +947,36 @@ def import_all_datasets(con: Any, target_path: Path) -> dict:
             and "__MACOSX" not in p.parts
         ])
 
-    print(f"\n==================================================")
-    print(f"PLANC DATASET IMPORTER - DISCOVERY")
-    print(f"Scanning target: {path}")
-    print(f"Found {len(files)} total file(s) in directory tree.")
-    print(f"==================================================")
+    PRIORITY_ORDER = {
+        "mca": 1,
+        "opensanctions": 2,
+        "nse": 3,
+        "icij": 4,
+        "gleif_level2": 5,
+        "gleif_level1": 6,
+        "unknown": 99,
+    }
 
-    # Classify files
+    # Classify files and sort by priority order (fast files first)
     classified: list[tuple[Path, str]] = []
     for f in files:
         cat = classify_dataset_file(f)
+        if skip_gleif and cat.startswith("gleif"):
+            continue
+        if only and only.lower() not in cat.lower():
+            continue
         classified.append((f, cat))
+
+    classified.sort(key=lambda item: (PRIORITY_ORDER.get(item[1], 10), str(item[0])))
+
+    print(f"\n==================================================")
+    print(f"PLANC DATASET IMPORTER - DISCOVERY")
+    print(f"Scanning target: {path}")
+    print(f"Found {len(classified)} runnable file(s) in priority order (Fast datasets first).")
+    print(f"==================================================")
+    for f, cat in classified:
         rel_display = str(f.relative_to(path) if path.is_dir() else f.name)
         print(f"  [{cat.upper():<14}] {rel_display}")
-
     print(f"==================================================\n")
 
     # Processing loop

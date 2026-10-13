@@ -6,6 +6,9 @@ rapidfuzz>=3.9,<4      # fuzzy name scoring for entity resolution
 openpyxl>=3.1,<4       # NSE debarred lists saved as XLSX
 xlrd>=2.0,<3           # NSE debarred lists saved as real BIFF .xls
 duckdb>=1.1.0          # Hosted DuckDB / MotherDuck integration
+google-cloud-bigquery>=3.25.0
+google-cloud-storage>=2.18.0
+pyarrow>=15.0.0
 
 # Crawler integration tests run the vendored Flask app in-process
 flask>=3.0,<4

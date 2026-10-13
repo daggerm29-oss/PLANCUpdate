@@ -37,6 +37,112 @@ function Stat({ label, value }: { label: string; value: React.ReactNode }) {
   )
 }
 
+type DuckDbBench = {
+  status: "ok" | "error"
+  engine: string
+  httpfs_loaded: boolean
+  hf_token_configured: boolean
+  hf_repo: string | null
+  sample_query_latency_ms: number
+  auth_verified: boolean
+  target_files: {
+    entities: string
+    identifiers: string
+    relationships: string
+  }
+  error?: string
+}
+
+export function DuckDbHfPanel() {
+  const { data, isLoading, mutate } = useSWR<DuckDbBench>("/api/duckdb/test", fetcher)
+  const [testing, setTesting] = useState(false)
+  const [testResult, setTestResult] = useState<{
+    results?: EntitySummary[]
+    duration_ms?: number
+    source?: string
+    error?: string
+  } | null>(null)
+
+  const runLiveSearchTest = async () => {
+    setTesting(true)
+    try {
+      const res = await fetcher<{
+        results: EntitySummary[]
+        duration_ms: number
+        source: string
+      }>("/api/search?q=U72900KA2022PTC165499")
+      setTestResult(res)
+    } catch (e: unknown) {
+      setTestResult({ error: e instanceof Error ? e.message : String(e) })
+    } finally {
+      setTesting(false)
+    }
+  }
+
+  return (
+    <Panel
+      title="DuckDB Serverless (Parquet & Hugging Face)"
+      actions={
+        data?.status === "ok" ? (
+          <Badge tone="documented">
+            Latency: {data.sample_query_latency_ms} ms
+          </Badge>
+        ) : undefined
+      }
+    >
+      <div className="flex flex-col gap-3 text-sm">
+        <p className="text-muted-foreground">
+          Queries remote partitioned Parquet files hosted on Hugging Face using serverless DuckDB with projection pushdown and range requests.
+        </p>
+        <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
+          <Stat label="Engine" value="DuckDB Node" />
+          <Stat label="httpfs module" value={data?.httpfs_loaded ? "Loaded" : "Ready"} />
+          <Stat
+            label="Hugging Face Auth"
+            value={data?.hf_token_configured ? "Token Active" : "Local Mode"}
+          />
+          <Stat
+            label="Query Latency"
+            value={data ? `${data.sample_query_latency_ms} ms` : "—"}
+          />
+        </div>
+
+        <div className="rounded border border-border/60 bg-muted/30 p-2.5 font-mono text-xs">
+          <div className="text-muted-foreground mb-1">Target Parquet Dataset:</div>
+          <div className="truncate">Entities: {data?.target_files?.entities || "loading..."}</div>
+          <div className="truncate">Identifiers: {data?.target_files?.identifiers || "loading..."}</div>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-2">
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => mutate()}
+            disabled={isLoading}
+          >
+            Refresh Benchmark
+          </Button>
+          <Button
+            size="sm"
+            onClick={runLiveSearchTest}
+            disabled={testing}
+          >
+            {testing ? "Testing..." : "Test Company Search (CIN)"}
+          </Button>
+          {testResult && (
+            <span className="text-xs text-muted-foreground">
+              {testResult.error
+                ? `Error: ${testResult.error}`
+                : `Found: ${testResult.results?.[0]?.name || "None"} (${testResult.duration_ms} ms · ${testResult.source})`}
+            </span>
+          )}
+        </div>
+      </div>
+    </Panel>
+  )
+}
+
+
 export function SystemView() {
   const stats = useSWR<Stats>("/api/stats", fetcher, { refreshInterval: 15000 })
   const ai = useSWR<AiStatusFull>("/api/ai/status", fetcher, { refreshInterval: 10000 })
@@ -82,6 +188,7 @@ export function SystemView() {
           </div>
         )}
       </Panel>
+      <DuckDbHfPanel />
       <McaUploadPanel />
       <CrawlerPanel />
       <Panel title="AI request budget">

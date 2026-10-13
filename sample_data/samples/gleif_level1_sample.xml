@@ -1,0 +1,928 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:LEIData xmlns:ns0="http://www.gleif.org/data/schema/leidata/2016">
+  <ns0:LEIRecords>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200013A5N6ZD0F605</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">AFRINVEST SECURITIES LIMITED</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>27 GERRARD ROAD</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>IKOYI</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101233</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>27 GERRARD ROAD</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>IKOYI</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101233</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>603315</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2024-02-16T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2025-11-05T12:54:14Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>ISSUED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2026-11-05T16:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>603315</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200137F2K8AH5C573</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">CAPITAL ASSETS LIMITED</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>9TH FLOOR BOOKSHOP HOUSE, 50/52 BROAD STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>P.O. BOX 702 LAGOS</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>100221</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>9TH FLOOR BOOKSHOP HOUSE, 50/52 BROAD STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>P.O. BOX 702 LAGOS</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>100221</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>286096</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2025-11-05T12:55:34Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>ISSUED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2026-11-05T16:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>286096</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200038B4L4ZI1E579</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">CAPITAL BANCORP PLC</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>3RD FLOOR, UNTL BUILDING, 1, DAVIES STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>OFF MARINA, LAGOS. P.O.BOX 1362, MARINA</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>100221</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>3RD FLOOR, UNTL BUILDING, 1, DAVIES STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>OFF MARINA, LAGOS. P.O.BOX 1362, MARINA</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>100221</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>114135</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2025-11-05T12:56:45Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>ISSUED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2026-11-05T15:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>114135</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200048F0K9UI5A508</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">CAPITAL EXPRESS SECURITIES LTD</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>PLOT 1626 C-E, SAKA JOJO STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>OFF IDEJO STREET, VICTORIA ISLAND</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101241</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>PLOT 1626 C-E, SAKA JOJO STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>OFF IDEJO STREET, VICTORIA ISLAND</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101241</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>158080</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2025-11-05T12:57:18Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>ISSUED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2026-11-05T16:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>158080</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200222D9S2BC3J917</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">CARDINALSTONE SECURITIES LIMITED</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>5, OKOTIE-EBOH STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>IKOYI</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101233</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>5, OKOTIE-EBOH STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>IKOYI</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101233</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>739857</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2025-11-05T12:58:15Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>ISSUED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2026-11-05T17:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>739857</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200067A7K6CH0H586</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">CENTRAL SECURITIES CLEARING SYSTEM PLC</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>2/4 CUSTOMS STREET, STOCK EXCHANGE HOUSE</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>14TH FLOOR, P.O.BOX 3168, MARINA</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>100221</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>2/4 CUSTOMS STREET, STOCK EXCHANGE HOUSE</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>14TH FLOOR, P.O.BOX 3168, MARINA</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>100221</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>201018</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2025-11-05T12:58:35Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>ISSUED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2026-11-05T16:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>201018</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200050A6L6XA0G556</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">COWRY SECURITIES LIMITED</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>PLOT 1319 KARIMU KOTUN STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>VICTORIA ISLAND</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101241</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>PLOT 1319 KARIMU KOTUN STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>VICTORIA ISLAND</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101241</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>902113</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2025-11-05T12:59:04Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>LAPSED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2025-11-05T17:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>902113</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200028G3L5BI6D581</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">DIAMOND SECURITIES LIMITED</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>33B CAMERON ROAD</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>IKOYI</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101233</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>33B CAMERON ROAD</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>IKOYI</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101233</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>165127</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2025-11-05T12:59:38Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>ISSUED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2026-11-05T16:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>165127</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200073F9T3DD5J993</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">ECL ASSET MANAGEMENT LIMITED</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>PLOT 154,PRINCE ADE ODEDINA STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>OFF SINARI DARANIJO STREET, OFF AJOSE ADEOGUN STREET, VICTORIA ISLAND</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101241</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>PLOT 154,PRINCE ADE ODEDINA STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>OFF SINARI DARANIJO STREET, OFF AJOSE ADEOGUN STREET, VICTORIA ISLAND</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101241</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>659949</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2026-09-11T08:23:08Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>LAPSED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2026-09-11T12:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>659949</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200086F9P0XG5J787</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">EUROCOMM SECURITIES LIMITED</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>4TH FLOOR, NEW AFRICA HOUSE</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>31 MARINA LAGOS ISLAND P O BOX 2283 MARINA</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>100221</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>4TH FLOOR, NEW AFRICA HOUSE</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>31 MARINA LAGOS ISLAND P O BOX 2283 MARINA</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>100221</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>359573</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2026-01-05T09:41:36Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>LAPSED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2026-01-05T17:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>359573</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200107H2M7CH7C666</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">FSDH CAPITAL LIMITED</ns0:LegalName>
+        <ns0:OtherEntityNames>
+          <ns0:OtherEntityName xml:lang="en" type="TRADING_OR_OPERATING_NAME">FSDH SECURITIES LIMITED</ns0:OtherEntityName>
+        </ns0:OtherEntityNames>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>4 FLOORS, UAC HOUSE</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>1/5 ODULAMI STREET</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>100221</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>4 FLOORS, UAC HOUSE</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>1/5 ODULAMI STREET</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>100221</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>276208</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2026-02-06T12:57:09Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>ISSUED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2026-11-05T17:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>276208</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200117F9M1UH5J696</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">INDEPENDENT SECURITIES LIMITED</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>1ST FLOOR, FORESIGHT HOUSE</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>163/165,BROAD STREET</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101241</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>1ST FLOOR, FORESIGHT HOUSE</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>163/165,BROAD STREET</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101241</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>259260</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2025-11-05T13:02:41Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>ISSUED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2026-11-05T17:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>259260</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200122C3N8YC2D645</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">INVESTMENT ONE STOCKBROKERS INTL LTD</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>37,KARIMU IKOTUN STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>VICTORIA ISLAND</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101241</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>NO 2, BROAD STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>LAGOS ISLAND LAGOS</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101241</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>725394</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2025-11-05T13:03:43Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>ISSUED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2026-11-05T16:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>725394</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200248G4K0AI6E516</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">MAGNARTIS FINANCE AND INVESTMENT LTD</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>16 BOYLE STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>ONIKAN</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101241</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>16 BOYLE STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>ONIKAN</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101241</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>164076</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2025-11-05T13:04:20Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>ISSUED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2026-11-05T17:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>164076</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200140H7L9YA7H589</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">MARINA SECURITIES STOCKBROKING SERVICES LIMITED</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>NO 10 AMODU OJIKUTU STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>VICTORIA ISLAND</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101241</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>NO 10 AMODU OJIKUTU STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>VICTORIA ISLAND</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101241</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>971184</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2025-11-05T13:05:07Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>ISSUED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2026-11-05T16:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>971184</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200218B6P4D8I1G47</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">MERISTEM STOCKBROKERS LIMITED</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>124 NORMAN WILLIAMS</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>SOUTH WEST IKOYI</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101233</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>124 NORMAN WILLIAMS</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>SOUTH WEST IKOYI</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101233</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>1125398</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2025-11-05T13:07:26Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>ISSUED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2026-11-05T16:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>1125398</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200237D6N4H3G6E37</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">NEWDEVCO INVESTMENT AND SECURITIES COMPANY LIMITED</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>NO 4 MUHAMMADU BUHARI WAY</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>NNIL BUILDING KADUNA</ns0:AdditionalAddressLine>
+          <ns0:City>KADUNA</ns0:City>
+          <ns0:Region>NG-KD</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>800211</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>NO 4 MUHAMMADU BUHARI WAY</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>NNIL BUILDING KADUNA</ns0:AdditionalAddressLine>
+          <ns0:City>KADUNA</ns0:City>
+          <ns0:Region>NG-KD</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>800211</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>23233</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2025-11-05T13:07:39Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>LAPSED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2025-11-05T18:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>23233</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200156B8S2G1I9C02</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">NIGERIAN INTERNATIONAL SECURITIES LIMITED</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>3 ALHAJI KANIKE STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>OFF AWOLOWO ROAD, S.W IKOYI</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101233</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>3 ALHAJI KANIKE STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>OFF AWOLOWO ROAD, S.W IKOYI</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101233</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>31085</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2025-09-05T10:13:12Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>LAPSED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2022-11-05T20:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>31085</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200258F9S9WI5J946</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">SECURITIES AND CAPITAL MANAGEMENT COMPANY LIMITED</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>107 BAMGBOSE STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>LAGOS ISLAND</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101241</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>107 BAMGBOSE STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>LAGOS ISLAND</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101241</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>159882</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2026-01-05T09:41:55Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>LAPSED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2026-01-05T16:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>159882</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+    <ns0:LEIRecord>
+      <ns0:LEI>029200162D5Q8ZC3F843</ns0:LEI>
+      <ns0:Entity>
+        <ns0:LegalName xml:lang="en">SKYVIEW CAPITAL LIMITED</ns0:LegalName>
+        <ns0:LegalAddress xml:lang="en">
+          <ns0:FirstAddressLine>71, NORMAN WILLIAMS STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>OFF AWOLOWO ROAD. SOUTH-WEST. IKOYI</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101233</ns0:PostalCode>
+        </ns0:LegalAddress>
+        <ns0:HeadquartersAddress xml:lang="en">
+          <ns0:FirstAddressLine>71, NORMAN WILLIAMS STREET</ns0:FirstAddressLine>
+          <ns0:AdditionalAddressLine>OFF AWOLOWO ROAD. SOUTH-WEST. IKOYI</ns0:AdditionalAddressLine>
+          <ns0:City>LAGOS</ns0:City>
+          <ns0:Region>NG-LA</ns0:Region>
+          <ns0:Country>NG</ns0:Country>
+          <ns0:PostalCode>101233</ns0:PostalCode>
+        </ns0:HeadquartersAddress>
+        <ns0:RegistrationAuthority>
+          <ns0:RegistrationAuthorityID>RA000469</ns0:RegistrationAuthorityID>
+          <ns0:RegistrationAuthorityEntityID>733695</ns0:RegistrationAuthorityEntityID>
+        </ns0:RegistrationAuthority>
+        <ns0:LegalJurisdiction>NG</ns0:LegalJurisdiction>
+        <ns0:EntityCategory>GENERAL</ns0:EntityCategory>
+        <ns0:LegalForm>
+          <ns0:EntityLegalFormCode>9999</ns0:EntityLegalFormCode>
+          <ns0:OtherLegalForm>LIMITED</ns0:OtherLegalForm>
+        </ns0:LegalForm>
+        <ns0:EntityStatus>ACTIVE</ns0:EntityStatus>
+        <ns0:EntityCreationDate>2014-11-06T00:00:00Z</ns0:EntityCreationDate>
+      </ns0:Entity>
+      <ns0:Registration>
+        <ns0:InitialRegistrationDate>2014-11-06T00:00:00Z</ns0:InitialRegistrationDate>
+        <ns0:LastUpdateDate>2025-09-05T10:14:10Z</ns0:LastUpdateDate>
+        <ns0:RegistrationStatus>LAPSED</ns0:RegistrationStatus>
+        <ns0:NextRenewalDate>2024-11-05T18:00:00Z</ns0:NextRenewalDate>
+        <ns0:ManagingLOU>029200067A7K6CH0H586</ns0:ManagingLOU>
+        <ns0:ValidationSources>FULLY_CORROBORATED</ns0:ValidationSources>
+        <ns0:ValidationAuthority>
+          <ns0:ValidationAuthorityID>RA000469</ns0:ValidationAuthorityID>
+          <ns0:ValidationAuthorityEntityID>733695</ns0:ValidationAuthorityEntityID>
+        </ns0:ValidationAuthority>
+      </ns0:Registration>
+    </ns0:LEIRecord>
+  </ns0:LEIRecords>
+</ns0:LEIData>

@@ -3,6 +3,7 @@ const API_URL = process.env.OSINT_API_URL
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "standalone",
+  serverExternalPackages: ["duckdb"],
   typescript: {
     ignoreBuildErrors: true,
   },

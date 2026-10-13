@@ -64,12 +64,71 @@ def main(argv: list[str] | None = None) -> None:
     imp.add_argument("--samples", type=Path, help="Path to samples.zip or samples directory")
     imp.add_argument("--dir", type=Path, help="Path to full datasets directory")
     imp.add_argument("--file", type=Path, help="Path to a single dataset file")
+    imp.add_argument("--skip-gleif", action="store_true", help="Skip heavy GLEIF XML archives to import fast datasets first")
+    imp.add_argument("--only", choices=["mca", "opensanctions", "nse", "icij", "gleif"], help="Only import specific dataset type")
+
+    psh = sub.add_parser("push", help="Push local DuckDB tables directly to MotherDuck in one fast command")
+    psh.add_argument("--from-local", type=Path, default=Path("planc.duckdb"), help="Local DuckDB database file path")
+    psh.add_argument("--to-md", type=str, default="planc", help="Target MotherDuck database name")
 
     s = sub.add_parser("search", help="Test search against DuckDB / MotherDuck")
     s.add_argument("query", help="Entity name, CIN, LEI, PAN, or DIN")
     s.add_argument("--limit", type=int, default=10)
 
+    to_pq = sub.add_parser("to-parquet", help="Convert local datasets to Hugging Face Parquet format")
+    to_pq.add_argument("--dir", type=Path, required=True, help="Path to local datasets directory")
+    to_pq.add_argument("--out", type=Path, default=Path("./parquet_export"), help="Output directory for Parquet files")
+    to_pq.add_argument("--skip-gleif", action="store_true", help="Skip heavy GLEIF XML archives")
+    to_pq.add_argument("--batch-size", type=int, default=50000, help="Batch insertion size")
+
     args = p.parse_args(argv)
+
+    if args.cmd == "to-parquet":
+        from .convert_to_parquet import ParquetConverter
+        root = args.dir.resolve()
+        if not root.exists():
+            print(f"Error: Datasets directory '{root}' does not exist.")
+            sys.exit(1)
+        converter = ParquetConverter(output_dir=args.out.resolve(), batch_size=args.batch_size)
+        for mca_path in root.glob("mca/*.csv"):
+            converter.process_mca(mca_path)
+        for os_path in root.glob("opensanctions/*.csv"):
+            converter.process_opensanctions(os_path)
+        if not args.skip_gleif:
+            for g1 in list(root.glob("gleif/level1.zip")) + list(root.glob("gleif/level1/*.xml")):
+                converter.process_gleif_level1(g1)
+            for g2 in list(root.glob("gleif/level2.zip")) + list(root.glob("gleif/level2/*.xml")):
+                converter.process_gleif_level2(g2)
+        converter.export_final_parquets()
+        return
+
+    if args.cmd == "push":
+        local_path = args.from_local
+        if not local_path.exists():
+            print(f"Error: Local DuckDB database file '{local_path}' does not exist.")
+            sys.exit(1)
+        md_name = args.to_md or "planc"
+        token = args.token or os.environ.get("MOTHERDUCK_TOKEN", "")
+        token_clause = f"?motherduck_token={token}" if token else ""
+        print(f"Opening local database: {local_path}...")
+        local_con = connect(str(local_path))
+        print(f"Connecting and attaching MotherDuck cloud database: md:{md_name}...")
+        local_con.execute(f"ATTACH 'md:{md_name}{token_clause}' AS md_target;")
+        tables = ["sources", "entities", "identifiers", "relationships", "ingest_runs"]
+        for tbl in tables:
+            try:
+                exists = local_con.execute(
+                    "SELECT 1 FROM information_schema.tables WHERE table_name = ?", [tbl]
+                ).fetchone()
+                if exists:
+                    print(f"  -> Uploading table '{tbl}' to MotherDuck...")
+                    local_con.execute(f"CREATE OR REPLACE TABLE md_target.{tbl} AS SELECT * FROM {tbl};")
+                    cnt = local_con.execute(f"SELECT count(*) FROM md_target.{tbl};").fetchone()[0]
+                    print(f"     [SUCCESS] {cnt:,} records uploaded into md:{md_name}.{tbl}")
+            except Exception as e:
+                print(f"     [WARNING] Could not upload table {tbl}: {e}")
+        print("\nAll local tables successfully pushed to MotherDuck!")
+        return
 
     # Resolve connection target
     target_mode = args.target
@@ -125,7 +184,9 @@ def main(argv: list[str] | None = None) -> None:
             sys.exit(1)
 
         print(f"Starting repeatable import from: {import_path}")
-        results = import_all_datasets(con, Path(import_path))
+        skip_gleif = getattr(args, "skip_gleif", False)
+        only = getattr(args, "only", None)
+        results = import_all_datasets(con, Path(import_path), skip_gleif=skip_gleif, only=only)
         elapsed = round(time.time() - start_time, 2)
         print(f"Import completed in {elapsed}s.")
         _print({
