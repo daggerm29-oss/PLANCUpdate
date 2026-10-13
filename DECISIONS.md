@@ -1,0 +1,19 @@
+# DECISIONS
+
+| # | Decision | Alternatives considered | Reason |
+|---|---|---|---|
+| D1 | **SQLite (WAL + FTS5) as the first system of record** | Local PostgreSQL, Supabase Free | Zero install, single file you can back up by copying, FTS5 built into Python. The SQL is written to be portable (ON CONFLICT, RETURNING, no SQLite-only types). PostgreSQL is the planned upgrade (P15) once you have multiple writers or analysts, or more than about 50 GB. |
+| D2 | **Not Supabase as primary DB** | Supabase Free | Verified: 500 MB database per project, paused after 1 week of inactivity, 2 active projects. Too small for sanctions plus registry bulk data, and pausing breaks a demo. It could host a small shared demo copy later. |
+| D3 | **No graph database yet** | Neo4j, Memgraph | Path search over SQL adjacency with indexes is fast enough for about 1M edges. Adding a second database costs RAM and sync code. Revisit if interactive 6-hop queries get slow over 10M+ edges, exporting from `relationships`. |
+| D4 | **FastAPI backend, Next.js (React + TS + Tailwind) frontend** | Vite React SPA | Same React/TS/Tailwind stack you asked for. The v0 project is Next.js. A Next rewrite proxies `/api/backend/*` to FastAPI, so there's no CORS and tokens never reach the browser. |
+| D5 | **RapidFuzz scoring + identifier-first matching; no auto-merge on names** | Splink | Splink needs labelled/EM training and DuckDB, which is overkill for 2 sources. Identifier joins (LEI/BIC/OGRN/INN/IMO) give high-precision links, and names only create `pending` review items. Splink is a P16 option once 3+ sources exist. |
+| D6 | **Non-destructive resolution (`same_as` edges, basis `inferred`)** | Merging rows | Keeps every source record intact and lets an analyst reject a match, which deletes the edge. Contradictions stay visible. |
+| D7 | **OpenSanctions FtM JSON, not `targets.simple.csv`** | Simple CSV | OpenSanctions recommends FtM. The CSV flattens the graph and loses Ownership/Directorship edges and Sanction details. |
+| D8 | **GLEIF REST API crawl (seeded BFS) first; Golden Copy later** | Full Golden Copy download | The API needs no key and is CC0, which is enough for targeted investigations. Golden Copy (about 2.7M records, multi-GB) is for nationwide screening. Streamed import is planned. |
+| D9 | **Raw payload stored once, normalised rows reference it** | Re-download on demand | Lets us re-normalise without re-fetching and gives provenance. Changed payloads go to `raw_record_history`, which supports historical analysis. |
+| D10 | **One DB-backed AI request manager** | Per-worker limiters, Redis, Celery | Your quota is about 2 RPM. A shared SQLite ledger (`BEGIN IMMEDIATE`) enforces RPM, concurrency, cooldown and daily budget across every process with zero extra services. |
+| D11 | **Reuse your `auth.py` verbatim, shim `config.py` from `.env`** | Rewrite auth, paid OpenAI API | Your instructions said to preserve the working auth. The attached `config.py` values were redacted, so the shim reads the same constant names from `backend/.env`, which stays local. |
+| D12 | **LLM only explains a pre-built evidence pack; citations validated** | RAG over the whole DB, agent loops | Minimises requests (1 per question), prevents invented facts, and the app stays fully useful without AI. |
+| D13 | **Hub-penalised k-shortest simple paths** | Plain BFS shortest path | Plain shortest paths run through custodians, governments, and registered agents. Adding `0.5·ln(1+degree)` per intermediate node ranks specific connections first. |
+| D14 | **Hosted DuckDB (MotherDuck) for bulk public datasets (1.14 GB)** | Dedicated Postgres, Supabase | MotherDuck free starter tier gives 10 GB storage and 10h compute. 1.14 GB raw uncompressed CSV/XML compresses to ~325 MB in DuckDB columnar format (<4% of limit). Lightweight `/api/health` preserves compute against 5-min Uptime pings. Zero egress Cloudflare R2 / local DuckDB fallback if limits change. |
+

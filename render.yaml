@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: planc-api
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && uvicorn app.api:app --host 0.0.0.0 --port $PORT --workers 2
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.8
+      - key: DB_BACKEND
+        value: motherduck
+      - key: MOTHERDUCK_TOKEN
+        sync: false
+      - key: MOTHERDUCK_DATABASE
+        value: planc
+      - key: CORS_ORIGINS
+        value: "https://*.vercel.app,http://localhost:3000"
+      - key: CRAWLER_URL
+        sync: false
+      - key: SERPER_API_KEY
+        sync: false

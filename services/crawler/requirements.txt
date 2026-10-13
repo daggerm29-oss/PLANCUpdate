@@ -1,0 +1,8 @@
+# Corporate Intelligence Bridge - Requirements for Render Free Tier (<=256MB RAM)
+# Lightweight, zero-heavy-binary dependencies to guarantee zero OOM failures
+
+Flask==3.0.3
+requests==2.32.3
+beautifulsoup4==4.12.3
+gunicorn==22.0.0
+urllib3==2.2.2
